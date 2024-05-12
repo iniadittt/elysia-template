@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in | AILIB</title>
+    <link rel="shortcut icon" type="image/png" href="../public/assets/images/logos/favicon.png" />
+    <link rel="stylesheet" href="../public/assets/css/styles.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+        .notyf .notyf__toast {
+            min-width: min-content;
+            max-width: max-content;
+            padding: 0 1rem;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body x-data="alpineInit()">
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <div
+            class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+            <div class="d-flex align-items-center justify-content-center w-100">
+                <div class="row justify-content-center w-100">
+                    <div class="col-md-8 col-lg-6 col-xxl-3">
+                        <div class="card mb-0">
+                            <div class="card-body">
+                                <div class="text-nowrap logo-img text-center d-block py-3 w-100" title="logo">
+                                    <img src="../public/assets/images/logos/dark-logo.svg" height="24" alt="">
+                                </div>
+                                <p class="text-center"></p>
+                                <form @submit.prevent="submit">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" x-model="data.email" class="form-control" id="email"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" x-model="data.password" class="form-control"
+                                            id="password">
+                                    </div>
+                                    <button type="button" @click="submitForm()"
+                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Login</button>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <p class="mb-0 fw-bold">Dont have account?</p>
+                                        <a class="text-primary fw-bold ms-2" href="/auth/register">Register</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../public/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../public/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="../public/assets/js/custom/cookie.js"></script>
+    <script>
+        var notyf = new Notyf();
+
+        function alpineInit() {
+            return {
+                data: {
+                    email: '',
+                    password: ''
+                },
+                async submitForm() {
+                    try {
+                        const request = await fetch('/auth/login', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(this.data)
+                        })
+                        const response = await request.json()
+                        console.log({
+                            response
+                        })
+                        if (!response.error && response.code === 200) {
+                            notyf.success({
+                                message: response.message,
+                                duration: 1000,
+                                ripple: false
+                            });
+                            setCookie('token', response.data.token, response.data.path, 7)
+                            setTimeout(() => {
+                                window.location.href = response.data.path
+                            }, 1000)
+                        } else if (response.error && response.code === 406) {
+                            response.errors.forEach((error, index) => {
+                                setTimeout(() => {
+                                    notyf.error({
+                                        message: error,
+                                        duration: 3000,
+                                        ripple: false
+                                    });
+                                }, index * 200);
+                            });
+                        } else if (response.error && response.code === 400) {
+                            notyf.error({
+                                message: response.message,
+                                duration: 3000,
+                                ripple: false
+                            });
+                        } else {
+                            console.log({
+                                response
+                            })
+                        }
+                    } catch (error) {
+                        console.error({
+                            error
+                        })
+                    } finally {
+                        this.email = ''
+                        this.password = ''
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
