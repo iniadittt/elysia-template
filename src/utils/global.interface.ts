@@ -11,6 +11,10 @@ export interface Enviroment {
   };
   token: {
     secret: string;
+    expired: string;
+  };
+  cookie: {
+    secret: string;
     expired: number;
   };
   page: { auth: string; admin: string; user: string };

@@ -5,10 +5,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASHBOARD</title>
+    <link rel="stylesheet" href="../public/assets/css/styles.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+        .notyf .notyf__toast {
+            min-width: min-content;
+            max-width: max-content;
+            padding: 0 1rem;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
-<body>
+<body x-data="alpineInit()">
     <h1>DASHBOARD USER</h1>
+    <button @click="logout()">LOGOUT</button>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script>
+        var notyf = new Notyf();
+
+        function alpineInit() {
+            return {
+                async logout() {
+                    try {
+                        const request = await fetch('/logout', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            }
+                        })
+                        const response = await request.json()
+                        if (!response.error && response.code === 200) {
+                            notyf.success({
+                                message: response.message,
+                                duration: 1000,
+                                ripple: false
+                            });
+                        }
+                        setTimeout(() => location.reload(), 1000)
+                    } catch (error) {
+                        console.error({
+                            errorS: error.message
+                        })
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

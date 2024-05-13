@@ -11,3 +11,10 @@ export interface ResponseError {
   message: string;
   errors: any;
 }
+
+export interface OptionError {
+  error: boolean;
+  code: number;
+  message: string;
+  errors?: string[];
+}

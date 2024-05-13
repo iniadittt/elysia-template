@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="../public/assets/css/styles.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
     <script src="//unpkg.com/alpinejs" defer></script>
+    <style>
+        .notyf .notyf__toast {
+            min-width: min-content;
+            max-width: max-content;
+            padding: 0 1rem;
+            font-size: 14px;
+        }
+    </style>
 </head>
 
 <body x-data="alpineInit()">
@@ -153,13 +161,13 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
-                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
-                                href="javascript:void(0)" title="nav-link">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="#"
+                                title="nav-link">
                                 <i class="ti ti-menu-2"></i>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-icon-hover" href="javascript:void(0)" title="icon">
+                            <a class="nav-link nav-icon-hover" href="#" title="icon">
                                 <i class="ti ti-bell-ringing"></i>
                                 <div class="notification bg-primary rounded-circle"></div>
                             </a>
@@ -168,30 +176,27 @@
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                             <li class="nav-item dropdown">
-                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
-                                    data-bs-toggle="dropdown" title="user" aria-expanded="false">
+                                <a class="nav-link nav-icon-hover" href="#" id="drop2" data-bs-toggle="dropdown"
+                                    title="user" aria-expanded="false">
                                     <img src="../public/assets/images/profile/user-1.jpg" alt="" width="35" height="35"
                                         class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-user fs-6"></i>
                                             <p class="mb-0 fs-3">My Profile</p>
                                         </a>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-mail fs-6"></i>
                                             <p class="mb-0 fs-3">My Account</p>
                                         </a>
-                                        <a href="javascript:void(0)"
-                                            class="d-flex align-items-center gap-2 dropdown-item">
+                                        <a href="#" class="d-flex align-items-center gap-2 dropdown-item">
                                             <i class="ti ti-list-check fs-6"></i>
                                             <p class="mb-0 fs-3">My Task</p>
                                         </a>
-                                        <a @click="logout()"
+                                        <a type="button" @click="logout()"
                                             class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                                     </div>
                                 </div>
@@ -323,8 +328,7 @@
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
                                         <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded <a
-                                                href="javascript:void(0)"
-                                                class="text-primary d-block fw-normal">#ML-3467</a>
+                                                href="#" class="text-primary d-block fw-normal">#ML-3467</a>
                                         </div>
                                     </li>
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
@@ -346,8 +350,7 @@
                                             <span class="timeline-badge-border d-block flex-shrink-0"></span>
                                         </div>
                                         <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">New sale recorded <a
-                                                href="javascript:void(0)"
-                                                class="text-primary d-block fw-normal">#ML-3467</a>
+                                                href="#" class="text-primary d-block fw-normal">#ML-3467</a>
                                         </div>
                                     </li>
                                     <li class="timeline-item d-flex position-relative overflow-hidden">
@@ -491,9 +494,9 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="card overflow-hidden rounded-2">
                             <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="../public/assets/images/products/s4.jpg"
+                                <a href="#"><img src="../public/assets/images/products/s4.jpg"
                                         class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)" title="add to cart">
+                                <a href="#" title="add to cart">
                                     class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute
                                     bottom-0 end-0 mb-n3
                                     me-3"
@@ -506,15 +509,15 @@
                                     <h6 class="fw-semibold fs-4 mb-0">$50 <span
                                             class="ms-2 fw-normal text-muted fs-3"><del>$65</del></span></h6>
                                     <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
                                     </ul>
                                 </div>
@@ -524,9 +527,9 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="card overflow-hidden rounded-2">
                             <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="../public/assets/images/products/s5.jpg"
+                                <a href="#"><img src="../public/assets/images/products/s5.jpg"
                                         class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)" title="addtocart"
+                                <a href="#" title="addtocart"
                                     class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
                                         class="ti ti-basket fs-4"></i></a>
@@ -537,15 +540,15 @@
                                     <h6 class="fw-semibold fs-4 mb-0">$650 <span
                                             class="ms-2 fw-normal text-muted fs-3"><del>$900</del></span></h6>
                                     <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
                                     </ul>
                                 </div>
@@ -555,9 +558,9 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="card overflow-hidden rounded-2">
                             <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="../public/assets/images/products/s7.jpg"
+                                <a href="#"><img src="../public/assets/images/products/s7.jpg"
                                         class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)" title="addtocart"
+                                <a href="#" title="addtocart"
                                     class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
                                         class="ti ti-basket fs-4"></i></a>
@@ -568,15 +571,15 @@
                                     <h6 class="fw-semibold fs-4 mb-0">$150 <span
                                             class="ms-2 fw-normal text-muted fs-3"><del>$200</del></span></h6>
                                     <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
                                     </ul>
                                 </div>
@@ -586,9 +589,9 @@
                     <div class="col-sm-6 col-xl-3">
                         <div class="card overflow-hidden rounded-2">
                             <div class="position-relative">
-                                <a href="javascript:void(0)"><img src="../public/assets/images/products/s11.jpg"
+                                <a href="#"><img src="../public/assets/images/products/s11.jpg"
                                         class="card-img-top rounded-0" alt="..."></a>
-                                <a href="javascript:void(0)" title="addtocart"
+                                <a href="#" title="addtocart"
                                     class="bg-primary rounded-circle p-2 text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3"
                                     data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
                                         class="ti ti-basket fs-4"></i></a>
@@ -599,15 +602,15 @@
                                     <h6 class="fw-semibold fs-4 mb-0">$285 <span
                                             class="ms-2 fw-normal text-muted fs-3"><del>$345</del></span></h6>
                                     <ul class="list-unstyled d-flex align-items-center mb-0">
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="me-1" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="me-1" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
-                                        <li><a class="" title="warning" href="javascript:void(0)"><i
+                                        <li><a class="" title="warning" href="#"><i
                                                     class="ti ti-star text-warning"></i></a></li>
                                     </ul>
                                 </div>
@@ -631,22 +634,33 @@
     <script src="../public/assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="../public/assets/js/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script src="../public/assets/js/custom/cookie.js"></script>
     <script>
         var notyf = new Notyf();
 
         function alpineInit() {
             return {
-                logout() {
-                    console.log('LOGOUT')
-                    deleteCookie('token', '/wp-admin')
-                    notyf.success({
-                        message: 'Berhasil logout',
-                        duration: 1000,
-                        ripple: false
-                    });
-                    setTimeout(() => window.location.href = '/auth/login', 1000)
-
+                async logout() {
+                    try {
+                        const request = await fetch('/logout', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            }
+                        })
+                        const response = await request.json()
+                        if (!response.error && response.code === 200) {
+                            notyf.success({
+                                message: response.message,
+                                duration: 1000,
+                                ripple: false
+                            });
+                        }
+                        setTimeout(() => location.reload(), 1000)
+                    } catch (error) {
+                        console.error({
+                            errorS: error.message
+                        })
+                    }
                 }
             }
         }

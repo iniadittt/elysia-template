@@ -12,6 +12,7 @@ import {
 } from '../../utils/global.interface';
 import { Role } from '@prisma/client';
 import { PageAuthentication } from '../../middlewares/authentication';
+import { cookie } from '@elysiajs/cookie';
 
 export default class AuthController {
   private app: Elysia;
@@ -89,9 +90,11 @@ export default class AuthController {
   private login = async ({
     body,
     jwt,
+    cookie: { auth },
   }: {
     body: ILogin;
     jwt: any;
+    cookie: { auth: any };
   }): Promise<ResponseType.ResponseSuccess | ResponseType.ResponseError> => {
     try {
       const result: ResponseService = await this.authService.login(
@@ -103,6 +106,7 @@ export default class AuthController {
       const path: string =
         role === 'admin' ? this.env.page.admin : this.env.page.user;
       const token: string = await jwt.sign({ id: result.data.id });
+      auth.value = token;
       return this.responseError.successWithData(200, result.message, {
         token,
         path,

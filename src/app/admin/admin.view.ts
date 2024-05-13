@@ -8,7 +8,12 @@ export default class AdminView {
     this.pageAuthentication = PageAuthentication;
   }
 
-  public index = async (): Promise<any> => {
+  public index = async ({
+    cookie: { auth },
+  }: {
+    cookie: { auth: any };
+  }): Promise<any> => {
+    console.log(auth.value);
     try {
       return Bun.file('public/pages/admin/index.html');
     } catch (error: any) {

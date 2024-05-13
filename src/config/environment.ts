@@ -13,7 +13,11 @@ const enviroment: Enviroment = {
   },
   token: {
     secret: process.env.TOKEN_SECRET || 'token_secret',
-    expired: Number(process.env.TOKEN_EXPIRED) || 1,
+    expired: process.env.TOKEN_EXPIRED || '1d',
+  },
+  cookie: {
+    secret: process.env.COOKIE_SECRET || 'cookie_secret',
+    expired: Number(process.env.COOKIE_EXPIRED) || 1,
   },
   page: {
     auth: process.env.PAGE_AUTH || '/auth',

@@ -61,7 +61,6 @@
     <script src="../public/assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../public/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    <script src="../public/assets/js/custom/cookie.js"></script>
     <script>
         var notyf = new Notyf();
 
@@ -81,19 +80,13 @@
                             body: JSON.stringify(this.data)
                         })
                         const response = await request.json()
-                        console.log({
-                            response
-                        })
                         if (!response.error && response.code === 200) {
                             notyf.success({
                                 message: response.message,
                                 duration: 1000,
                                 ripple: false
                             });
-                            setCookie('token', response.data.token, response.data.path, 7)
-                            setTimeout(() => {
-                                window.location.href = response.data.path
-                            }, 1000)
+                            setTimeout(() => location.reload(), 1000)
                         } else if (response.error && response.code === 406) {
                             response.errors.forEach((error, index) => {
                                 setTimeout(() => {

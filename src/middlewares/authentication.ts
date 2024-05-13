@@ -4,10 +4,9 @@ import { ResponseAuthentication } from '../utils/global.interface';
 
 export const PageAuthentication = async (
   jwt: any,
-  cookie: any,
+  token: string,
   allowUser: 'admin' | 'user',
 ): Promise<ResponseAuthentication> => {
-  const token: string = cookie.token.value;
   if (!token) return { isAuthenticated: false, message: 'Unauthorized' };
   const profile = await jwt.verify(token);
   if (!profile) return { isAuthenticated: false, message: 'Unauthorized' };

@@ -20,6 +20,13 @@ Content-Type: "application/json"
     "password": "admin123"
 }
 
+
 ###
 
-GET http://localhost:3000/panel
+GET http://localhost:3000/admin/
+Content-Type: "application/json"
+
+###
+
+POST http://localhost:3000/logout
+Content-Type: "application/json"
