@@ -4,9 +4,9 @@ POST http://localhost:3000/auth/register
 Content-Type: "application/json"
 
 {
-    "email": "user@gmail.com",
-    "password": "password",
-    "confirmPassword": "password",
+    "email": "admin@gmail.com",
+    "password": "admin123",
+    "confirmPassword": "admin123",
     "name": "admin"
 }
 
@@ -20,13 +20,12 @@ Content-Type: "application/json"
     "password": "admin123"
 }
 
-
 ###
 
-GET http://localhost:3000/admin/
+GET http://localhost:3000/admin
 Content-Type: "application/json"
 
 ###
 
-POST http://localhost:3000/logout
+GET http://localhost:3000/user
 Content-Type: "application/json"

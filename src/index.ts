@@ -36,7 +36,7 @@ const app = new Elysia()
     }),
   )
   .use(staticPlugin())
-  .get('/', () => 'HELLO')
+  .get('/', () => Bun.file('public/pages/index.html'))
   .post('/logout', async ({ cookie }): Promise<any> => {
     cookie.auth.set({ maxAge: 0 });
     return new ResponseError().success(200, 'Logout successful');
